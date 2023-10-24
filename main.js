@@ -59,43 +59,84 @@ const  firstPunctuationIndex = (str) => {
     return result
 }
 
+// const getPlace = (arr, score) => {
+//     let place
+//     let str
+//     for (let i = 0; i <= arr.length; i++) {
+//       if (score > arr[i]) {
+//         place = i + 1
+//         switch (place % 10) {
+//         case 1 :
+//             str = place + "st place";
+//             break;
+//         case 2 :
+//             str = place + "nd place";
+//             break;
+//         case 3 :
+//             str = place + "rd place";
+//             break;
+//         default :
+//             str = place + "th place";
+//             break;
+//         } return str
+//       } 
+//     }
+//     place = arr.length + 1
+//     switch (place % 10) {
+//         case 1 :
+//             str = place + "st place";
+//             break;
+//         case 2 :
+//             str = place + "nd place";
+//             break;
+//         case 3 :
+//             str = place + "rd place";
+//             break;
+//         default :
+//             str = place + "th place";
+//             break;
+//         } return str
+// }
+
 const getPlace = (arr, score) => {
-    let place
+    let place = 0
     let str
     for (let i = 0; i <= arr.length; i++) {
-      if (score > arr[i]) {
-        place = i + 1
-        switch (place % 10) {
-        case 1 :
-            str = place + "st place";
-            break;
-        case 2 :
-            str = place + "nd place";
-            break;
-        case 3 :
-            str = place + "rd place";
-            break;
-        default :
-            str = place + "th place";
-            break;
-        } return str
-      } 
+      if (score < arr[i]) {
+        place ++
+      }
     }
-    place = arr.length + 1
-    switch (place % 10) {
+    if (place > 12) {
+      switch ((place + 1) % 10) {
         case 1 :
-            str = place + "st place";
-            break;
+          str = place + 1 + "st place";
+          break;
         case 2 :
-            str = place + "nd place";
-            break;
+          str = place + 1 + "nd place";
+          break;
         case 3 :
-            str = place + "rd place";
-            break;
+          str = place + 1 + "rd place";
+          break;
         default :
-            str = place + "th place";
-            break;
-        } return str
+          str = place + 1 + "th place";
+          break;
+      }
+    }else{
+    switch (place + 1) {
+        case 1 :
+          str = place + 1 + "st place";
+          break;
+        case 2 :
+          str = place + 1 + "nd place";
+          break;
+        case 3 :
+          str = place + 1 + "rd place";
+          break;
+        default :
+          str = place + 1 + "th place";
+          break;
+    }
+    }return str
 }
     
   
