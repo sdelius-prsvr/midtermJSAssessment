@@ -81,24 +81,22 @@ const getPlace = (arr, score) => {
         } return str
       } 
     }
-
-        place = arr.length + 1
-        switch (place % 10) {
-            case 1 :
-                str = place + "st place";
-                break;
-            case 2 :
-                str = place + "nd place";
-                break;
-            case 3 :
-                str = place + "rd place";
-                break;
-            default :
-                str = place + "th place";
-                break;
-            } return str
-
-    }
+    place = arr.length + 1
+    switch (place % 10) {
+        case 1 :
+            str = place + "st place";
+            break;
+        case 2 :
+            str = place + "nd place";
+            break;
+        case 3 :
+            str = place + "rd place";
+            break;
+        default :
+            str = place + "th place";
+            break;
+        } return str
+}
     
   
 
