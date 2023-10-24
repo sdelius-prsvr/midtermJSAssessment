@@ -90,6 +90,18 @@ const addToObj = (obj, key, value) => {
     obj[key] = value
 }
 
+const duplicateElements = (arr) => {
+    let arr2 = []
+    for (let i1 = 0 ; i1 <= arr.length ; i1++) {
+        for (let i2 = i1 + 1 ; i2 <= arr.length ; i2++) {
+            if (arr[i1] === arr[i2] && arr2.includes(arr[i2]) === false) {
+                arr2.push(arr[i2]);
+            }
+        }
+    }
+    return arr2;
+}
+
 // ┌─────────────────────────────────────┐
 // │ Do not modify code below this line. │
 // └─────────────────────────────────────┘
