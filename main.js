@@ -59,31 +59,35 @@ const  firstPunctuationIndex = (str) => {
     return result
 }
 
-const getPlace = (highScores, score) => {
-    let place = 0
-    for (let i = 0; i < highScores.length; i++){
-        if (score > highScores[i]) {
-            place = i + 1
-        }
-    }    
-    if (place[(place.length)] === 0){
-        return `${place}st place`
-    }if (place[(place.length)] === 1){
-        return `${place}nd place`
-    }if (place[(place.length)] === 2){
-        return `${place}rd place`
-    }else{
-        return `${place}th place`
+const getPlace = (arr, score) => {
+    let place
+    let str
+    for (let i = 0; i <= arr.length; i++) {
+      if (score > arr[i]) {
+        let place = i + 1
+          switch (place % 100) {
+            case 1 :
+              str = place + "st place";
+              break;
+            case 2 :
+              str = place + "nd place";
+              break;
+            case 3 :
+              str = place + "rd place";
+              break;
+            default :
+              str = place + "th place";
+              break;
+          } return str
+      }
     }
-}
+  }
 
-
-const addToObj = (person, key, value) => {
-    if (typeof key === 'string'){
-    person.key = value;
-    return
-    }
-    else return "Function must be called with a valid key."
+const addToObj = (obj, key, value) => {
+    if (typeof key !== 'string'){
+        return "Function must be called with a valid key."
+    }else
+    obj[key] = value
 }
 
 // ┌─────────────────────────────────────┐
